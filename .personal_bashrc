@@ -1,0 +1,11 @@
+# Setup PS1
+# Clear
+PS1=""
+# Name
+PS1+="${RAW_SET_BOLD}${RAW_CLR_LIT_GRY}Dylan${RAW_RESET_ALL}:"
+# Working Directory
+PS1+="[${RAW_SET_BOLD}${RAW_CLR_GRN}\w${RAW_RESET_ALL}]"
+# Git branch
+PS1+="${RAW_CLR_CYN}\$(__git_ps1 '(%s)')${RAW_RESET_ALL}"
+# Clean dollar finisher
+PS1+="$ "
