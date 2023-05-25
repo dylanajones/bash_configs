@@ -1,0 +1,6 @@
+cm = commit -m
+co = checkout
+cob = checkout -b
+com = checkout master
+st = status
+s = status

@@ -1,0 +1,8 @@
+#!/bin/bash
+# Uncomment in case of bad state.
+#git clean -xffd
+#git reset --hard HEAD
+git submodule sync --recursive
+git submodule deinit -f .
+git submodule update --init --recursive
+git submodule foreach --recursive 'git clean -xffd; git reset --hard HEAD'
