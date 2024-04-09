@@ -71,6 +71,35 @@ __print_progress_bar(){
     echo -ne "$STRING"
 }
 
+__repo_base_dir(){
+    git rev-parse --show-toplevel
+}
+
+__get_repo_name() {
+    __repo_base_dir >/dev/null 2>&1 || return
+    __repo_base_dir | rev | cut -d'/' -f 1 | rev
+}
+
+__PS1_PKG_VERSION() {
+    if [ $(__get_repo_name | wc -w) -eq 0 ]; then
+        return
+    fi
+
+    if ! [ -f $(__repo_base_dir)/metadata.json ]; then
+        return
+    fi 
+
+    local VER_NUM="$(\
+        cat $(__repo_base_dir)/metadata.json | \
+        grep --color=never version | \
+        cut -d ':' -f 2 |\
+        tr -d '[:space:]' |\
+        tr -d '"'
+    )"
+
+    echo -ne "($VER_NUM)"
+}
+
 
 export RESET_ALL="\033[0m"
 

@@ -7,5 +7,7 @@ PS1+="${RAW_SET_BOLD}${RAW_CLR_LIT_GRY}Dylan${RAW_RESET_ALL}:"
 PS1+="[${RAW_SET_BOLD}${RAW_CLR_GRN}\w${RAW_RESET_ALL}]"
 # Git branch
 PS1+="${RAW_CLR_CYN}\$(__git_ps1 '(%s)')${RAW_RESET_ALL}"
+# Package Version
+PS1+="${RAW_CLR_LIT_MAG}\$(__PS1_PKG_VERSION)${RAW_RESET_ALL}"
 # Clean dollar finisher
 PS1+="$ "
